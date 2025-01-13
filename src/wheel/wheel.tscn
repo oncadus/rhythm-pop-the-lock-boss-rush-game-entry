@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://xml2js68rwl3"]
+
+[ext_resource type="Script" path="res://src/wheel/Wheel.cs" id="1_khl4s"]
+[ext_resource type="Texture2D" uid="uid://caadu4jf5a6u1" path="res://assets/under.png" id="2_w88yo"]
+[ext_resource type="Texture2D" uid="uid://1b8fouaw60le" path="res://assets/progress.png" id="4_6rdhf"]
+
+[node name="Wheel" type="Sprite2D"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_w88yo")
+script = ExtResource("1_khl4s")
+rotSpeed = 5.0
+
+[node name="Cursor" type="Sprite2D" parent="."]
+texture = ExtResource("4_6rdhf")
+
+[node name="HitWindow" type="Marker2D" parent="Cursor"]
+unique_name_in_owner = true
+position = Vector2(6.3, 0)
+scale = Vector2(1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 109.0
+offset_top = 159.0
+offset_right = 372.0
+offset_bottom = 248.0
+
+[node name="ScoreDecayTimer" type="Timer" parent="CanvasLayer"]
+wait_time = 1.5
+autostart = true

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0xd3cctc1o33"]
+
+[ext_resource type="Texture2D" uid="uid://e5cfwkecw50h" path="res://assets/arrow.png" id="1_xm61l"]
+[ext_resource type="Script" path="res://src/arrow/Arrow.cs" id="2_adwvv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sftpm"]
+atlas = ExtResource("1_xm61l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5ba6"]
+atlas = ExtResource("1_xm61l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_081i5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sftpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5ba6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqn2q"]
+radius = 7.4027
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" groups=["notes"]]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_081i5")
+script = ExtResource("2_adwvv")
+noteSpeed = 5.0
+noteCleanUpRad = 1.0
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="NoteHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoteHitbox"]
+position = Vector2(0, -5.96046e-08)
+shape = SubResource("CircleShape2D_pqn2q")

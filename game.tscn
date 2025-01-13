@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://hhuxkn8g3sqo"]
+
+[ext_resource type="PackedScene" uid="uid://xml2js68rwl3" path="res://src/wheel/wheel.tscn" id="1_apttk"]
+[ext_resource type="PackedScene" uid="uid://bss6bn70g80i6" path="res://src/game manager/game manager.tscn" id="1_okubx"]
+
+[node name="Game" type="Node"]
+
+[node name="Wheel" parent="." instance=ExtResource("1_apttk")]
+position = Vector2(586, 314)
+
+[node name="GameManager" parent="." instance=ExtResource("1_okubx")]
+spawnRad = 550.0
